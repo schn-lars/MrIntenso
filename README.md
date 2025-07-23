@@ -8,5 +8,5 @@ The application leverages computer vision techniques, specifically object detect
 </figure>
 
 ## Setup
-1. Setup Server: [Repository]([Server](https://github.com/schn-lars/server/))
+1. Setup Server: [Repository](https://github.com/schn-lars/server/)
 2. Change all ``myurl.com``-appearances in this repository to the URL under which your server is accessible.
