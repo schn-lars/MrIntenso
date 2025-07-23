@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24E263" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="DateDetail" representedClassName="DateDetail" parentEntity="DescriptionEntityBase" syncable="YES" codeGenerationType="class">
+        <relationship name="base" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DescriptionEntityBase" inverseName="date" inverseEntity="DescriptionEntityBase"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EventDetail" inverseName="dateObject" inverseEntity="EventDetail"/>
+    </entity>
+    <entity name="DescriptionEntityBase" representedClassName="DescriptionEntityBase" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="descriptionText" optional="YES" attributeType="String"/>
+        <attribute name="errorMessage" optional="YES" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <attribute name="type" attributeType="String"/>
+        <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="date" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DateDetail" inverseName="base" inverseEntity="DateDetail"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ImageDetail" inverseName="base" inverseEntity="ImageDetail"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocationDetail" inverseName="base" inverseEntity="LocationDetail"/>
+        <relationship name="navigation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NavigationDetail" inverseName="base" inverseEntity="NavigationDetail"/>
+        <relationship name="object" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="ObjectEntity" inverseName="descriptions" inverseEntity="ObjectEntity"/>
+        <relationship name="shazam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShazamDetail" inverseName="base" inverseEntity="ShazamDetail"/>
+        <relationship name="shopping" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShoppingDetail" inverseName="base" inverseEntity="ShoppingDetail"/>
+        <relationship name="specification" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpecificationDetail" inverseName="base" inverseEntity="SpecificationDetail"/>
+        <relationship name="url" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="URLDetail" inverseName="base" inverseEntity="URLDetail"/>
+    </entity>
+    <entity name="EventDetail" representedClassName="EventDetail" syncable="YES" codeGenerationType="class">
+        <attribute name="adress" optional="YES" attributeType="String"/>
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="end" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="notes" attributeType="String"/>
+        <attribute name="saved" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="start" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="dateObject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DateDetail" inverseName="events" inverseEntity="DateDetail"/>
+    </entity>
+    <entity name="ImageDetail" representedClassName="ImageDetail" parentEntity="DescriptionEntityBase" syncable="YES" codeGenerationType="class">
+        <attribute name="imageData" attributeType="Binary"/>
+        <relationship name="base" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DescriptionEntityBase" inverseName="image" inverseEntity="DescriptionEntityBase"/>
+    </entity>
+    <entity name="LocationDetail" representedClassName="LocationDetail" parentEntity="DescriptionEntityBase" syncable="YES" codeGenerationType="class">
+        <attribute name="address" attributeType="String"/>
+        <attribute name="city" attributeType="String"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="base" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DescriptionEntityBase" inverseName="location" inverseEntity="DescriptionEntityBase"/>
+    </entity>
+    <entity name="NavigationDetail" representedClassName="NavigationDetail" parentEntity="DescriptionEntityBase" syncable="YES" codeGenerationType="class">
+        <attribute name="address" attributeType="String"/>
+        <attribute name="city" attributeType="String"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="base" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DescriptionEntityBase" inverseName="navigation" inverseEntity="DescriptionEntityBase"/>
+    </entity>
+    <entity name="ObjectEntity" representedClassName="ObjectEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="confidence" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="imageData" attributeType="Binary"/>
+        <attribute name="lastSpotted" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="objectName" attributeType="String"/>
+        <attribute name="shared" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="descriptions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DescriptionEntityBase" inverseName="object" inverseEntity="DescriptionEntityBase"/>
+    </entity>
+    <entity name="SaleItemEntity" representedClassName="SaleItemEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="condition" optional="YES" attributeType="String"/>
+        <attribute name="currency" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="inStock" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="link" attributeType="String"/>
+        <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="reviews" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="selected" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="source" optional="YES" attributeType="String"/>
+        <attribute name="sourceIcon" optional="YES" attributeType="String"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+        <attribute name="type" attributeType="String"/>
+        <relationship name="shoppingObject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShoppingDetail" inverseName="items" inverseEntity="ShoppingDetail"/>
+    </entity>
+    <entity name="ShazamDetail" representedClassName="ShazamDetail" parentEntity="DescriptionEntityBase" syncable="YES" codeGenerationType="class">
+        <attribute name="artist" optional="YES" attributeType="String"/>
+        <attribute name="artwork" optional="YES" attributeType="String"/>
+        <attribute name="explicit" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="songtitle" optional="YES" attributeType="String"/>
+        <attribute name="video" optional="YES" attributeType="String"/>
+        <attribute name="web" optional="YES" attributeType="String"/>
+        <relationship name="base" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DescriptionEntityBase" inverseName="shazam" inverseEntity="DescriptionEntityBase"/>
+    </entity>
+    <entity name="ShoppingDetail" representedClassName="ShoppingDetail" parentEntity="DescriptionEntityBase" syncable="YES" codeGenerationType="class">
+        <relationship name="base" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DescriptionEntityBase" inverseName="shopping" inverseEntity="DescriptionEntityBase"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="SaleItemEntity" inverseName="shoppingObject" inverseEntity="SaleItemEntity"/>
+    </entity>
+    <entity name="SpecificationDetail" representedClassName="SpecificationDetail" parentEntity="DescriptionEntityBase" syncable="YES" codeGenerationType="class">
+        <attribute name="specificationString" attributeType="String"/>
+        <relationship name="base" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DescriptionEntityBase" inverseName="specification" inverseEntity="DescriptionEntityBase"/>
+    </entity>
+    <entity name="URLDetail" representedClassName="URLDetail" parentEntity="DescriptionEntityBase" syncable="YES" codeGenerationType="class">
+        <attribute name="urlString" attributeType="String"/>
+        <relationship name="base" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DescriptionEntityBase" inverseName="url" inverseEntity="DescriptionEntityBase"/>
+    </entity>
+</model>

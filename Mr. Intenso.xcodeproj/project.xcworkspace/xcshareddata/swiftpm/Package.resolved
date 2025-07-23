@@ -1,0 +1,51 @@
+{
+  "originHash" : "752547e1a29c062d35554a60d8fd6d7a3d5b9f7954c4a57de60e0bf3a3bfb7a8",
+  "pins" : [
+    {
+      "identity" : "codescanner",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/twostraws/CodeScanner",
+      "state" : {
+        "revision" : "5e886430238944c7200fc9e10dbf2d9550dba865",
+        "version" : "2.5.2"
+      }
+    },
+    {
+      "identity" : "dhash",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AndreasVerhoeven/DHash",
+      "state" : {
+        "branch" : "master",
+        "revision" : "5cd59e6ad671e8c96bce376f2c0ba8f9a1e68972"
+      }
+    },
+    {
+      "identity" : "reachability.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ashleymills/Reachability.swift",
+      "state" : {
+        "branch" : "master",
+        "revision" : "21d1dc412cfecbe6e34f1f4c4eb88d3f912654a6"
+      }
+    },
+    {
+      "identity" : "swiftsoup",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/scinfu/SwiftSoup",
+      "state" : {
+        "revision" : "bba848db50462894e7fc0891d018dfecad4ef11e",
+        "version" : "2.8.7"
+      }
+    },
+    {
+      "identity" : "yolo-ios-app",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ultralytics/yolo-ios-app",
+      "state" : {
+        "branch" : "main",
+        "revision" : "37d0e4bb27840fedde9c1e8ea826f9cf0bea3385"
+      }
+    }
+  ],
+  "version" : 3
+}
